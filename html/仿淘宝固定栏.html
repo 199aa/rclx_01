@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+	.slider-bar{
+		position: absolute;
+		left: 50%;
+		top: 300px;
+		margin-left: 600px;
+		width: 45px;
+		height: 130px;
+		background-color: pink;
+		
+	}
+	.goBack{
+		display: none;
+		margin-top:80px ;
+	}
+		.header{
+			background-color: #FF0000;
+			height: 200px;
+		}
+		.banner{
+			width: 1000px;
+			background-color: green;
+			height: 400px;
+		}
+		.main{
+			width: 1000px;
+			background-color: yellow;
+			height: 900px;
+		}
+		.w{
+			width: 1200px;
+			margin: 10px auto;
+		}
+	</style>
+	
+	<body>
+		<div class="slider-bar">
+			<span class="goBack"> 返回顶部</span>
+		</div>
+		<div class="header w"></div>
+			<div class="banner w"></div>
+		<div class="main w"></div>
+		<script type="text/javascript">
+		var slider=document.querySelector('.slider-bar');
+		var banner=document.querySelector('.banner');
+		var main=document.querySelector('.main');
+		var mainTop=main.offsetTop;
+		var goBack=document.querySelector('.goBack');
+		var bannerTop=banner.offsetTop;
+		var sliderTop=slider.offsetTop-bannerTop;
+			document.addEventListener('scroll',function(){
+				if(window.pageYOffset>=bannerTop){
+					slider.style.position='fixed';
+					slider.style.top=sliderTop+ 'px';
+				}else{
+					slider.style.position='absolute';
+					slider.style.top='300px';
+				}
+				if(window.pageYOffset>=mainTop){
+					
+				goBack.style.display='block'
+				}else{
+					
+					goBack.style.display='none';
+				}
+			} ) 
+			
+			
+			
+			goBack.addEventListener('click',function(){
+				animate(window,0);
+			} )
+			function animate(obj,target,callback){
+						clearInterval(obj.timer);
+						
+						obj.timer=setInterval(function(){
+							var step=(target-window.pageYOffset)/10;
+							step=step>0? Math.ceil(step):Math.floor(step);
+						if(window.pageYOffset==target){
+							clearInterval(obj.timer);
+							callback();
+						}
+						// obj.style.left=window.pageYOffset+step+'px';
+						window.scroll(0,window.pageYOffset+step);
+						
+					} ,15)
+					}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				background-color: black;
+			}
+			ul{
+				list-style: none;
+				
+			}
+			a{
+				text-decoration: none;
+				color: #000000;
+				
+			}
+			.nav-1{
+				background-color: white;
+				width: 900px;
+				height: 40px;
+				margin: 100px auto;
+				position: relative;
+				border-radius: 5px;
+				z-index: 1;
+			}
+			a:hover{
+				color: white;
+				
+			}
+			.nav-1 ul li{
+				float: left;
+				line-height: 40px;
+				padding-left: 10px;		
+				text-align: center;
+				
+					}
+					.nav-1 ul li a{
+						display: inline-block;
+						height: 42px;
+						
+					}
+					
+					.cloud{
+						position: absolute;
+						top: 0;
+						left: 0;	
+						width: 83px;
+						height: 42px;
+						background: url(../img/图片/cloud.gif) no-repeat ;
+						z-index: -1;
+						
+						
+					}
+				.img_1{
+					position: absolute;
+					top: 0;
+					left: 860px;
+				}
+				
+		</style>
+		<div class="nav-1">
+			<span class="cloud"></span>
+			<span class="img_1"><img src="../img/图片/rss.png" ></span>
+			<ul>
+				<li class="current"><a href="#">首页新闻</a></li>
+				<li class="current"><a href="#">师资力量</a></li>
+				<li class="current"><a href="#">企业文化</a></li>
+				<li class="current"><a href="#">活动策划</a></li>
+				<li class="current"><a href="#">招聘信息</a></li>
+				<li class="current"><a href="#">公司简介</a></li>
+				<li class="current"><a href="#">小猪佩奇</a></li>
+				<li class="current"><a href="#">啥是佩奇</a></li>
+				
+			</ul>
+		</div>
+		<script src="../js/animate.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		
+			var cloud=document.querySelector('.cloud');
+			var nav=document.querySelector('.nav-1');
+			var lis=nav.querySelectorAll('li');
+			var current=0;
+			for(var i=0;i<lis.length;i++){
+				lis[i].addEventListener('mouseenter',function(){
+					animate(cloud,this.offsetLeft);
+					
+				} )
+				
+					
+				lis[i].addEventListener('click',function(){
+						current=this.offsetLeft;
+						
+							
+				} )
+			
+					
+				
+				nav.addEventListener('mouseleave',function(){
+					animate(cloud,current);
+				} )
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<input type="" id="q3" value="" /><input type="checkbox"  class="" name="" id="q4" value="" />记住用户名
+
+	
+
+	</body>
+	<script type="text/javascript">
+		var username=document.querySelector('#q3');
+		var rembername=document.querySelector('#q4');
+		
+		
+		if(localStorage.getItem('uname')){
+			username.value=localStorage.getItem('uname');
+			rembername.checked=true;
+		}
+		rembername.addEventListener('change',function(){
+			if(this.checked){
+				localStorage.setItem('uname',username.value);
+			}else{
+				localStorage.removeItem('uname');
+			}
+		} )
+		
+	</script>
+		
+			
+		
+</html>

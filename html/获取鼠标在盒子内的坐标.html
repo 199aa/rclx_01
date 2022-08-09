@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<style type="text/css">
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+    }
+</style>
+
+<body>
+    <div id=""></div>
+    <script type="text/javascript">
+        var div = document.querySelector('div');
+        div.addEventListener('mousemove', function(e) {
+            var a = e.pageX - div.offsetLeft;
+            var b = e.pageY - div.offsetTop;
+            this.innerHTML = ' x坐标是' + a + ' y坐标是' + b;
+
+            // console.log(e.pageX);
+            // console.log(e.pageY);
+            // console.log(div.offsetLeft);
+            // console.log(div.offsetTop);
+
+        })
+    </script>
+
+</body>
+
+</html>

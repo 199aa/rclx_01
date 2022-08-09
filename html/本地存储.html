@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" class="b1" id="" value="" />
+		<button class="b2" type="button">存储数据</button>
+		<button class="b3" type="button">获取数据</button>
+		<button class="b4" type="button">删除数据</button>
+		<button class="b5" type="button">清空所有数据</button>
+	</body>
+	<script type="text/javascript">
+		var b1=document.querySelector('.b1');
+		var b2=document.querySelector('.b2');
+		var b3=document.querySelector('.b3');
+		var b4=document.querySelector('.b4');
+		var b5=document.querySelector('.b5');
+		
+		b2.addEventListener('click',function(){
+			var ad=b1.value;
+			sessionStorage.setItem('uname',ad);
+			sessionStorage.setItem('ada',ad);
+			
+		} )
+		b3.addEventListener('click',function(){
+			sessionStorage.getItem('uname');
+			
+		} )
+		b4.addEventListener('click',function(){
+			sessionStorage.removeItem('uname');
+			
+		} )
+		b5.addEventListener('click',function(){
+			sessionStorage.clear();
+			
+		} )
+	</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+
+		<title></title>
+		<script src="../js/animate.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<style type="text/css">
+		span {
+			position: absolute;
+			left: 0;
+			top: 0;
+		 width: 40px;
+			height: 40px;
+			color: white;
+			line-height: 40px;
+		}
+
+		.sliderbar {
+			right: 0;
+			top: 300px;
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			line-height: 35px;
+			background-color: purple;
+		}
+
+		.con {
+			width: 200px;
+			height: 40px;
+			position: absolute;
+			top: 0;
+			text-align: center;
+			background-color: purple;
+			color: white;
+			z-index: -1;
+		}
+	</style>
+	<body>
+		<div class="sliderbar">
+			<div class="con">问题反馈</div>
+
+
+			<span>→</span>
+
+
+		</div>
+
+		<script>
+			// 获取元素
+			var sliderbar = document.querySelector('.sliderbar');
+			var con = document.querySelector('.con');
+			var span = document.querySelector('span');
+			// 当我们鼠标经过 sliderbar 就会让con这个盒子华东到左侧
+		 // 当我们鼠标离开 sliderbar 就会让从这个盒子移动到右侧
+			sliderbar.addEventListener('mouseover', function() {
+				animate(con, -200, function() {
+					span.innerHTML = '→';
+				});
+			})
+			sliderbar.addEventListener('mouseleave', function() {
+				animate(con, 0, function() {
+					span.innerHTML = '←';
+				});
+			})
+		</script>
+
+
+
+	</body>
+</html>
